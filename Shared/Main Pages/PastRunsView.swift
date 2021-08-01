@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PastRunsView: View {
+    var listOfRuns: [Run]
     var body: some View {
         NavigationView{
             List{
-                Text("One Item")
-                Text("Another Item")
+                ForEach(listOfRuns, id: \.id){runInst in
+                    CardView(image: Image(systemName: "sun.max"), imageColor: Color.orange, sliderVal: runInst.sliderVal, totalMileStr: runInst.totalMileStr, totalTimeStr: runInst.totalTimeStr, caloriesBurnedStr: runInst.caloriesBurnedStr, commentsStr: runInst.commentsStr, runDate: runInst.runDate)
+                }
             }
             .navigationTitle("Past Workouts")
         }
@@ -21,6 +23,7 @@ struct PastRunsView: View {
 
 struct PastRunsView_Previews: PreviewProvider {
     static var previews: some View {
-        PastRunsView()
+        //PastRunsView(listOfRuns: [Run(sliderVal: 3.0, totalMileStr: "2", totalTimeStr: "30:32", caloriesBurnedStr: "650", commentsStr: "Comments String Super Strong Blah Blah", runDate: Date())])
+        PastRunsView(listOfRuns: testRunList)
     }
 }

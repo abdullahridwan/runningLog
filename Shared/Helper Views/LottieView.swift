@@ -10,17 +10,20 @@ import Lottie
 
 
 struct LottieView: UIViewRepresentable {
-  typealias UIViewType = UIView
-  var filename: String
+    //typealias UIViewType = UIView
+    let animationView = AnimationView()
+    var filename: String
   
   func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
-    let view = UIView(frame: .zero)
+    let view = UIView()
     
-    let animationView = AnimationView()
-    let animation = Animation.named(filename)
+    //let animationView = AnimationView()
+    let animation = Animation.named("LottieLogo1")
+    print(animation.debugDescription)
     animationView.animation = animation
     animationView.contentMode = .scaleAspectFit
     animationView.play()
+    animationView.loopMode = .loop
     
     animationView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(animationView)
@@ -40,7 +43,9 @@ struct LottieView: UIViewRepresentable {
 
 struct LottieView_Previews: PreviewProvider {
     static var previews: some View {
-        LottieView(filename: "HamburgerArrow")
-            .frame(width: 30, height: 30, alignment: .center)
+        VStack {
+            LottieView(filename: "")
+                .frame(width: 500, height: 500 , alignment: .center)
+        }
     }
 }

@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct TabBarView: View {
+    init(){
+        UITabBar.appearance().barTintColor = .white
+    }
     var body: some View {
         TabView {
-            PastRunsView()
+            
+            PastRunsView(listOfRuns: testRunList)
                 .tabItem {
-                    Label("Menu", systemImage: "list.dash")
+                    Label("Logs", systemImage: "list.bullet")
                 }
             HomeView()
                 .tabItem {
-                    Label("Home", systemImage: "square")
+                    Label("Today", systemImage: "pencil")
                 }
-            Text("Jill")
-                .tabItem {
-                    Label("Order", systemImage: "square.and.pencil")
-                }
+//            Text("Jill")
+//                .tabItem {
+//                    Label("Order", systemImage: "square.and.pencil")
+//                }
         }
         .accentColor(.red)
+        .onAppear() {
+            UITabBar.appearance().barTintColor = .white
+        }
     }
+    
 }
 
 struct TabBarView_Previews: PreviewProvider {
