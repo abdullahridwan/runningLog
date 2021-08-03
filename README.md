@@ -16,6 +16,6 @@ TODO
 
 | Item  |Priority (**1**>2>3)   |
 |---|---|
-|   |   |
-|   |   |
+| Add Firebase Auth and Read/Write to save user data to cloud |   1 |
+| Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu  | 2  |
 |   |   |
