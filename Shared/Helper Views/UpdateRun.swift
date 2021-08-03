@@ -25,11 +25,13 @@ struct UpdateRun: View {
     @State private var u_commentsString: String = ""
 
     //@State var IDInput: UUID
+
     
     var body: some View {
         let obj = runsOOInput.listOfRuns.first(where: {$0.id == IDInput})
+        
         NavigationView {
-            LabelTextFieldWithFormat(label: "Slider Val", placeHolder: obj?.sliderVal ?? 0.0, bindingString: $u_sliderValue)
+            LabelTextFieldWithFormat(label: "Slider Value", whatItIs: "Slider value", bindingString: $u_sliderValue)
                 
         }
     }
@@ -40,14 +42,14 @@ struct UpdateRun: View {
 }
 struct LabelTextFieldWithFormat : View {
     var label: String
-    var placeHolder: Double
+    var whatItIs: String
     var bindingString: Binding<Double>
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
                 .font(.headline)
-            TextField(String(format: "%2f"), value: bindingString, formatter: NumberFormatter())
+            TextField("Input \(whatItIs)", value: bindingString, formatter: NumberFormatter())
                 .padding(10)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
                 //.padding(10)
