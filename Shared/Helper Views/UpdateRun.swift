@@ -14,25 +14,28 @@
 import SwiftUI
 
 struct UpdateRun: View {
-    //@ObservedObject var runsOOInput: RunsOO
+    @ObservedObject var runsOOInput: RunsOO
     //@Binding var IDInput: UUID
 //    @Binding var u_sliderValue: Double
 //    @Binding var u_totalMileString: String
 //    @Binding var u_totalTimeString: String
 //    @Binding var u_caloriesBurnedString: String
 //    @Binding var u_commentsString: String
-
+    @State var IDInput: UUID
     @State var u_sliderValue: Double
     @State var u_totalMileString: String
     @State var u_totalTimeString: String
     @State var u_caloriesBurnedString: String
     @State var u_commentsString: String
-    
+    @State var u_runDate: Date
     
     
     @State private var showingAlert = false
     
     @State private var buttonSpring = false
+    
+    
+    @Binding var showSheet: Bool
     
 
 
@@ -44,6 +47,13 @@ struct UpdateRun: View {
             VStack {
                 VStack{
                     sliderComponent
+                    DatePicker(selection: $u_runDate, in: ...Date(), displayedComponents: .date) {
+                        Text("Select a date")
+                    }
+                    .padding(.bottom, 20)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    
                     LabelTextField(label: "Total Miles Ran", placeHolder: u_totalMileString, bindingString: $u_totalMileString)
                     LabelTextField(label: "Total Time", placeHolder: u_totalTimeString, bindingString: $u_totalTimeString)
                     LabelTextField(label: "Calories Burned", placeHolder: u_caloriesBurnedString, bindingString: $u_caloriesBurnedString)
@@ -73,11 +83,17 @@ struct UpdateRun: View {
                             action: {}
                         ), secondaryButton: .destructive(
                             Text("Delete"),
-                            action: {}
+                            action: {
+                                deleteItemByID(objectID: IDInput, OOInput: runsOOInput)
+                                showSheet.toggle()
+                            }
                         ))
                     })
                     
-                    Button("Update", action: {})
+                    Button("Update", action: {
+                        updateItemByID(objectID: IDInput, OOInput: runsOOInput)
+                        showSheet.toggle()
+                    })
                         .buttonStyle(GrowingButtonStyle(buttonColor: Color.orange))
                 }
                 Spacer()
@@ -126,6 +142,18 @@ struct UpdateRun: View {
         }.padding(.horizontal, 20)
     }
     
+    
+    
+    //delete item from model
+    func deleteItemByID(objectID: UUID, OOInput: RunsOO){
+        OOInput.listOfRuns.removeAll(where: {$0.id == objectID})
+    }
+    
+    func updateItemByID(objectID: UUID, OOInput: RunsOO){
+        OOInput.listOfRuns.removeAll(where: {$0.id == objectID})
+        OOInput.listOfRuns.append(Run(id: objectID, sliderVal: u_sliderValue, totalMileStr: u_totalMileString, totalTimeStr: u_totalTimeString, caloriesBurnedStr: u_commentsString, commentsStr: u_commentsString, runDate: u_runDate))
+    }
+    
 }
 
 
@@ -136,7 +164,7 @@ struct UpdateRun_Previews: PreviewProvider {
     static var previews: some View {
         let obj = RunsOO()
         let objSpec = obj.listOfRuns[0]
-        UpdateRun(u_sliderValue: objSpec.sliderVal , u_totalMileString: objSpec.totalMileStr, u_totalTimeString: objSpec.totalTimeStr, u_caloriesBurnedString: objSpec.caloriesBurnedStr, u_commentsString: objSpec.commentsStr)
+        UpdateRun(runsOOInput: obj, IDInput: objSpec.id, u_sliderValue: objSpec.sliderVal , u_totalMileString: objSpec.totalMileStr, u_totalTimeString: objSpec.totalTimeStr, u_caloriesBurnedString: objSpec.caloriesBurnedStr, u_commentsString: objSpec.commentsStr, u_runDate: Date(), showSheet: .constant(true))
         //UpdateRun(runsOOInput: obj, IDInput: obj.listOfRuns[0].id)
     }
 }

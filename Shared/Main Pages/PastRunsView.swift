@@ -32,7 +32,7 @@ struct PastRunsView: View {
                         //get the tapped object
                         //print(ID)
                         let obj = self.runsOO.listOfRuns.first(where: {$0.id == ID})
-                        UpdateRun(u_sliderValue: obj?.sliderVal ?? 0.0, u_totalMileString: obj?.totalMileStr ?? "", u_totalTimeString: obj?.totalTimeStr ?? "", u_caloriesBurnedString: obj?.caloriesBurnedStr ?? "", u_commentsString: obj?.commentsStr ?? "")
+                        UpdateRun(runsOOInput: runsOO, IDInput: ID, u_sliderValue: obj?.sliderVal ?? 0.0, u_totalMileString: obj?.totalMileStr ?? "", u_totalTimeString: obj?.totalTimeStr ?? "", u_caloriesBurnedString: obj?.caloriesBurnedStr ?? "", u_commentsString: obj?.commentsStr ?? "", u_runDate: obj?.runDate ?? Date(), showSheet: $updateRunBool)
                         //UpdateRun(runsOOInput: self.runsOO, IDInput: $ID)
                     })
                     
