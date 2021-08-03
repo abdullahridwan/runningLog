@@ -14,8 +14,8 @@ TODO
 * Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu
 
 
-| Item  |Priority (**1**>2>3)   |
-|---|---|
-| Add Firebase Auth and Read/Write to save user data to cloud |   1 |
-| Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu  | 2  |
-|   |   |
+| Item  |Priority (**1**>2>3)   | Comments
+|---|---|---|
+| Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Hence, will use firebase for auth and firestore for read/write|
+| Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu  | 2  | Want to do beta testing to catch bugs and get general feedback|
+| Badges  |  3 | A cool reward system. Perhaps if you ran a new PR Time or PR Distance, you can get badges/trophies. Goal is to have badges/trophies show on specific runs on the past run Log|
