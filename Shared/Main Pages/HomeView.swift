@@ -62,28 +62,15 @@ struct HomeView: View {
 
                         
                         Button("Log Run") {
-//                            totalMileString = ""
-//                            totalTimeString = ""
-//                            caloriesBurnedString = ""
-//                            commentsString = ""
-//                            sliderValue = 0.0
-//                            runDate = Date()
                             runsOO.listOfRuns.append(Run(sliderVal: sliderValue, totalMileStr: totalMileString, totalTimeStr: totalTimeString, caloriesBurnedStr: caloriesBurnedString, commentsStr: commentsString, runDate: runDate))
                             
                             self.showRunLogged.toggle()
-                            print("\n")
-                            print("totalMiles", $totalMileString)
-                            print("totalTime", $totalTimeString)
-                            print("totalCalories", $caloriesBurnedString)
                         }
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue.opacity(0.75))
-                            .cornerRadius(8.0)
-                            .padding(.top, 10)
+                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
                             .sheet(isPresented: $showRunLogged) {
                                         RunLogged()
                             }
+                        Spacer()
 
                 }
                 .padding(.horizontal, 20)

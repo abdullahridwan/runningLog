@@ -9,6 +9,8 @@ import Lottie
 //import SwiftUI
 
 struct RunLogged: View {
+    @State private var buttonSpring = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -31,6 +33,10 @@ struct RunLogged: View {
                     .foregroundColor(.secondary)
                 Image(systemName: "chevron.down")
                     .padding()
+                    .padding(.top, 7)
+                    .offset(x: 0, y: buttonSpring ? 0 : -6)
+                    .animation(Animation.easeOut.delay(0.6).repeatForever(), value: buttonSpring)
+                    .onAppear{self.buttonSpring = true}
             }
         }
         

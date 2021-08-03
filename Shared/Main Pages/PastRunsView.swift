@@ -23,12 +23,17 @@ struct PastRunsView: View {
                     
                     
                     CardView(image: Image(systemName: "sun.max"), imageColor: Color.orange, sliderVal: runInst.sliderVal, totalMileStr: runInst.totalMileStr, totalTimeStr: runInst.totalTimeStr, caloriesBurnedStr: runInst.caloriesBurnedStr, commentsStr: runInst.commentsStr, runDate: runInst.runDate)
-                        .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                        .onTapGesture(count: 1, perform: {
                             ID = runInst.id
                             updateRunBool.toggle()
                         })
                     .sheet(isPresented: $updateRunBool, content: {
-                        UpdateRun(runsOOInput: self.runsOO, IDInput: $ID)
+                        
+                        //get the tapped object
+                        //print(ID)
+                        let obj = self.runsOO.listOfRuns.first(where: {$0.id == ID})
+                        UpdateRun(u_sliderValue: obj?.sliderVal ?? 0.0, u_totalMileString: obj?.totalMileStr ?? "", u_totalTimeString: obj?.totalTimeStr ?? "", u_caloriesBurnedString: obj?.caloriesBurnedStr ?? "", u_commentsString: obj?.commentsStr ?? "")
+                        //UpdateRun(runsOOInput: self.runsOO, IDInput: $ID)
                     })
                     
                     

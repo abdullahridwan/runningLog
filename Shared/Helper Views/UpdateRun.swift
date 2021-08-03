@@ -14,56 +14,129 @@
 import SwiftUI
 
 struct UpdateRun: View {
-    @ObservedObject var runsOOInput: RunsOO
-    @Binding var IDInput: UUID
-    
-    
-    @State private var u_sliderValue: Double = 0
-    @State private var u_totalMileString: String = ""
-    @State private var u_totalTimeString: String = ""
-    @State private var u_caloriesBurnedString: String = ""
-    @State private var u_commentsString: String = ""
+    //@ObservedObject var runsOOInput: RunsOO
+    //@Binding var IDInput: UUID
+//    @Binding var u_sliderValue: Double
+//    @Binding var u_totalMileString: String
+//    @Binding var u_totalTimeString: String
+//    @Binding var u_caloriesBurnedString: String
+//    @Binding var u_commentsString: String
 
-    //@State var IDInput: UUID
+    @State var u_sliderValue: Double
+    @State var u_totalMileString: String
+    @State var u_totalTimeString: String
+    @State var u_caloriesBurnedString: String
+    @State var u_commentsString: String
+    
+    
+    
+    @State private var showingAlert = false
+    
+    @State private var buttonSpring = false
+    
+
 
     
     var body: some View {
-        let obj = runsOOInput.listOfRuns.first(where: {$0.id == IDInput})
-        
+        //let obj = runsOOInput.listOfRuns.first(where: {$0.id == IDInput})
         NavigationView {
-            LabelTextFieldWithFormat(label: "Slider Value", whatItIs: "Slider value", bindingString: $u_sliderValue)
+            //LabelTextFieldWithFormat(label: "Slider Value", whatItIs: "Slider value", bindingString: $u_sliderValue)
+            VStack {
+                VStack{
+                    sliderComponent
+                    LabelTextField(label: "Total Miles Ran", placeHolder: u_totalMileString, bindingString: $u_totalMileString)
+                    LabelTextField(label: "Total Time", placeHolder: u_totalTimeString, bindingString: $u_totalTimeString)
+                    LabelTextField(label: "Calories Burned", placeHolder: u_caloriesBurnedString, bindingString: $u_caloriesBurnedString)
+                    VStack(alignment: .leading) {
+                        Text("Quick Comments")
+                            .font(.headline)
+                        TextEditor(text: $u_commentsString)
+                            .padding(10)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
+                            //.padding(10)
+                            .foregroundColor(.black)
+                    }.padding(20)
+                }
+                .padding(.top, 5)
+                .padding(.horizontal, 30)
+                //.padding(.bottom, 50)
                 
+                //Spacer()
+                HStack {
+                    Button("Delete", action: {
+                        showingAlert = true
+                    })
+                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.red))
+                    .alert(isPresented: $showingAlert, content: {
+                        Alert(title: Text("Delete this Entry?"), message: Text("This cannot be undone"), primaryButton: .default(
+                            Text("Cancel"),
+                            action: {}
+                        ), secondaryButton: .destructive(
+                            Text("Delete"),
+                            action: {}
+                        ))
+                    })
+                    
+                    Button("Update", action: {})
+                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.orange))
+                }
+                Spacer()
+                Text("Swipe this down to dismiss")
+                    .font(.title3)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 20)
+                Image(systemName: "chevron.down")
+                    .padding(.bottom, 10)
+                    .padding(.top, 7)
+                    .offset(x: 0, y: buttonSpring ? 0 : -6)
+                    .animation(Animation.easeOut.delay(0.6).repeatForever(), value: buttonSpring)
+                    .onAppear{self.buttonSpring = true}
+                
+                
+            }
+            .navigationTitle("Update Your Run")
         }
     }
     
     
-    
-    
-}
-struct LabelTextFieldWithFormat : View {
-    var label: String
-    var whatItIs: String
-    var bindingString: Binding<Double>
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(label)
-                .font(.headline)
-            TextField("Input \(whatItIs)", value: bindingString, formatter: NumberFormatter())
-                .padding(10)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
-                //.padding(10)
+    var sliderComponent: some View {
+        VStack {
+            switch u_sliderValue {
+            case 0...1:
+                Text("You're just starting out")
+                    .foregroundColor(.secondary)
+            case 1...2:
+                Text("You're a rising star")
+                    .foregroundColor(.secondary)
+            case 2...3:
+                Text("You're world famous!")
+                    .foregroundColor(.secondary)
+            case 3...4:
+                Text("Pretty Good! Getting the hang of this")
+                    .foregroundColor(.secondary)
+            case 4...5:
+                Text("Easy Run! Feeling great!")
+                    .foregroundColor(.secondary)
+            default:
+                Text("Move the Slider based on dificulty!")
+                    .foregroundColor(.secondary)
             }
-            .padding(5)
-            .padding(.horizontal, 15)
+            Slider(value: $u_sliderValue, in: 0...5)
+            Text("Current slider value: \(u_sliderValue, specifier: "%.2f")").font(.subheadline).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+        }.padding(.horizontal, 20)
     }
+    
 }
+
+
+
 
 
 struct UpdateRun_Previews: PreviewProvider {
     static var previews: some View {
         let obj = RunsOO()
-        UpdateRun(runsOOInput: obj, IDInput: .constant(obj.listOfRuns[0].id))
+        let objSpec = obj.listOfRuns[0]
+        UpdateRun(u_sliderValue: objSpec.sliderVal , u_totalMileString: objSpec.totalMileStr, u_totalTimeString: objSpec.totalTimeStr, u_caloriesBurnedString: objSpec.caloriesBurnedStr, u_commentsString: objSpec.commentsStr)
         //UpdateRun(runsOOInput: obj, IDInput: obj.listOfRuns[0].id)
     }
 }
