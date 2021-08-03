@@ -119,6 +119,7 @@ struct HomeView: View {
             Text("Current slider value: \(sliderValue, specifier: "%.2f")").font(.subheadline).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
         }.padding(20)
     }
+    
 }
 
 
