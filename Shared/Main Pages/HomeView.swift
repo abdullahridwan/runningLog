@@ -23,6 +23,8 @@ struct HomeView: View {
     @State private var caloriesBurnedString: String = ""
     @State private var commentsString: String = ""
     
+    @ObservedObject var runsOO: RunsOO
+    
     
     var body: some View {
         VStack {
@@ -66,7 +68,7 @@ struct HomeView: View {
 //                            commentsString = ""
 //                            sliderValue = 0.0
 //                            runDate = Date()
-                            testRunList.append(Run(sliderVal: sliderValue, totalMileStr: totalMileString, totalTimeStr: totalTimeString, caloriesBurnedStr: caloriesBurnedString, commentsStr: commentsString, runDate: runDate))
+                            runsOO.listOfRuns.append(Run(sliderVal: sliderValue, totalMileStr: totalMileString, totalTimeStr: totalTimeString, caloriesBurnedStr: caloriesBurnedString, commentsStr: commentsString, runDate: runDate))
                             
                             self.showRunLogged.toggle()
                             print("\n")
@@ -180,6 +182,6 @@ struct LabelTextEditor : View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(runsOO: RunsOO())
     }
 }

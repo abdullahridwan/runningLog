@@ -20,8 +20,8 @@ struct CardField: View {
             cardImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 30)
-                .padding(.leading, 20)
+                .frame(width: 25)
+                .padding(.leading, 15)
                 .foregroundColor(
                     foregroundColor
                 )
@@ -31,9 +31,9 @@ struct CardField: View {
                 LabelTextField(label: titleOf, placeHolder: placeholderText, bindingString: titleBinding)
             }
             .padding(.leading, 5)
-            .padding(.top, 20)
-            .padding(.bottom, 20)
-            .padding(.trailing, 20)
+            .padding(.top, 12)
+            .padding(.bottom, 12)
+            .padding(.trailing, 15)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .center)

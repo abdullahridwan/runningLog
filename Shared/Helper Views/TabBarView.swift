@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @StateObject var runsOO = RunsOO()
+    
     init(){
         UITabBar.appearance().barTintColor = .white
     }
     var body: some View {
         TabView {
             
-            PastRunsView(listOfRuns: testRunList)
+            PastRunsView(runsOO: self.runsOO)
                 .tabItem {
                     Label("Logs", systemImage: "list.bullet")
                 }
-            HomeView()
+            HomeView(runsOO: self.runsOO)
                 .tabItem {
                     Label("Today", systemImage: "pencil")
                 }

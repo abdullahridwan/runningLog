@@ -33,6 +33,10 @@
 		B56B0ABA26B65B6800110EF6 /* DatePickerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B0AB926B65B6800110EF6 /* DatePickerCard.swift */; };
 		B573C3D226951B4100669F0C /* PastRunsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573C3D126951B4100669F0C /* PastRunsView.swift */; };
 		B573C3D526951D4100669F0C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B573C3D426951D4100669F0C /* Lottie */; };
+		B588C95126B8935D00898802 /* BasicBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95026B8935D00898802 /* BasicBadge.swift */; };
+		B588C95326B8937300898802 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95226B8937300898802 /* HexagonParameters.swift */; };
+		B588C95626B8940100898802 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95526B8940100898802 /* BadgeBackground.swift */; };
+		B588C95B26B8C89100898802 /* UpdateRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95A26B8C89100898802 /* UpdateRun.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		B56B0AB726B64C0B00110EF6 /* CardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardField.swift; sourceTree = "<group>"; };
 		B56B0AB926B65B6800110EF6 /* DatePickerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCard.swift; sourceTree = "<group>"; };
 		B573C3D126951B4100669F0C /* PastRunsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsView.swift; sourceTree = "<group>"; };
+		B588C95026B8935D00898802 /* BasicBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBadge.swift; sourceTree = "<group>"; };
+		B588C95226B8937300898802 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
+		B588C95526B8940100898802 /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
+		B588C95A26B8C89100898802 /* UpdateRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRun.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,7 @@
 		B51FA7B926923DBC0033EB73 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B588C94F26B8934D00898802 /* Badges */,
 				B56B0AB426B631AE00110EF6 /* DataModel */,
 				B53B2E2A26952096005338D1 /* Animations */,
 				B51FA7F826923DE80033EB73 /* Helper Views */,
@@ -208,6 +217,7 @@
 				B56B0A6C26B6290B00110EF6 /* CardView.swift */,
 				B56B0AB726B64C0B00110EF6 /* CardField.swift */,
 				B56B0AB926B65B6800110EF6 /* DatePickerCard.swift */,
+				B588C95A26B8C89100898802 /* UpdateRun.swift */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -226,6 +236,16 @@
 				B56B0AB526B631BF00110EF6 /* RunDataModel.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B588C94F26B8934D00898802 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				B588C95026B8935D00898802 /* BasicBadge.swift */,
+				B588C95226B8937300898802 /* HexagonParameters.swift */,
+				B588C95526B8940100898802 /* BadgeBackground.swift */,
+			);
+			path = Badges;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,8 +417,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B588C95326B8937300898802 /* HexagonParameters.swift in Sources */,
 				B56B0AB826B64C0B00110EF6 /* CardField.swift in Sources */,
+				B588C95B26B8C89100898802 /* UpdateRun.swift in Sources */,
 				B56B0ABA26B65B6800110EF6 /* DatePickerCard.swift in Sources */,
+				B588C95126B8935D00898802 /* BasicBadge.swift in Sources */,
 				B51FA7E526923DBD0033EB73 /* ContentView.swift in Sources */,
 				B56B0A6D26B6290B00110EF6 /* CardView.swift in Sources */,
 				B573C3D226951B4100669F0C /* PastRunsView.swift in Sources */,
@@ -408,6 +431,7 @@
 				B51FA7E326923DBD0033EB73 /* runningLogApp.swift in Sources */,
 				B526598A269401B100BA4874 /* RunLogged.swift in Sources */,
 				B53B2E2C2695227B005338D1 /* LottieView.swift in Sources */,
+				B588C95626B8940100898802 /* BadgeBackground.swift in Sources */,
 				B56B0AB626B631BF00110EF6 /* RunDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
