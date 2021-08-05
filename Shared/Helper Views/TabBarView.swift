@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @StateObject var runsOO = RunsOO()
+    @StateObject var runsOO = RunsOO() // Should be @ObservedObject
     
     init(){
         UITabBar.appearance().barTintColor = .white

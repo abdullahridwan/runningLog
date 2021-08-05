@@ -24,7 +24,7 @@ struct User {
     var email: String
 }
 
-class f_RunOO: ObservableObject {
+class f_RunsOO: ObservableObject {
     @Published var f_listOfRuns: [f_Run]?
     @Published var isAnon: Bool = false
     @Published var session: User?
@@ -35,7 +35,7 @@ class f_RunOO: ObservableObject {
     
     // Checks to see if user is logged in. If so, change Published Fields
     func listen(){
-        handle = authRef.addStateDidChangeListener({ auth, user in
+        handle = authRef.addStateDidChangeListener({ (auth, user) in
             if let user = user {
                 self.isAnon = false
                 self.session = User(uid: user.uid, email: user.email!)
@@ -62,11 +62,18 @@ class f_RunOO: ObservableObject {
         do {
             try authRef.signOut()
             self.session = nil
+            self.isAnon = true
             return true
         } catch {
             return false
         }
     }
     
+    
+    func unbind() {
+        if let handle = handle {
+            authRef.removeStateDidChangeListener(handle)
+        }
+    }
     
 }
