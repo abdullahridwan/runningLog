@@ -32,9 +32,10 @@ class f_RunOO: ObservableObject {
     var handle: AuthStateDidChangeListenerHandle?
     let authRef = Auth.auth()
     
+    
+    // Checks to see if user is logged in. If so, change Published Fields
     func listen(){
         handle = authRef.addStateDidChangeListener({ auth, user in
-            
             if let user = user {
                 self.isAnon = false
                 self.session = User(uid: user.uid, email: user.email!)
@@ -42,10 +43,30 @@ class f_RunOO: ObservableObject {
                 self.isAnon = true
                 self.session = nil
             }
-            
-            
-            
         })
     }
+    
+    
+    //Sign In User that from email and password textfields
+    func signIn(email: String, password: String){
+        authRef.signIn(withEmail: email, password: password)
+    }
+    
+    //Sign Up user created from email and password from textfields
+    func signUp(email: String, password: String){
+        authRef.createUser(withEmail: email, password: password)
+    }
+    
+    //Sign out user
+    func signOut () -> Bool {
+        do {
+            try authRef.signOut()
+            self.session = nil
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     
 }
