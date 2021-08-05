@@ -65,13 +65,13 @@ struct UpdateRun: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
                             //.padding(10)
                             .foregroundColor(.black)
-                    }.padding(20)
+                    }.padding()
                 }
                 .padding(.top, 5)
                 .padding(.horizontal, 30)
-                //.padding(.bottom, 50)
+                .padding(.bottom, -20)
                 
-                //Spacer()
+                
                 HStack {
                     Button("Delete", action: {
                         showingAlert = true

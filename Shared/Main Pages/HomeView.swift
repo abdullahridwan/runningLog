@@ -76,6 +76,9 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 10)
                 .navigationTitle(Text("Log Today's Run"))
+                .onTapGesture {
+                              self.hideKeyboard()
+                            }
                 }
             }
         }
@@ -90,20 +93,20 @@ struct HomeView: View {
         VStack {
             switch sliderValue {
             case 0...1:
-                Text("You're just starting out")
+                Text("Pretty hard but we'll get there!")
             case 1...2:
-                Text("You're a rising star")
+                Text("Getting the hang of it!")
             case 2...3:
-                Text("You're world famous!")
+                Text("Good Run!")
             case 3...4:
-                Text("Pretty Good! Getting the hang of this")
+                Text("Light Run! Going to crush it next time!")
             case 4...5:
                 Text("Easy Run! Feeling great!")
             default:
-                Text("Move the Slider based on dificulty!")
+                Text("Move the Slider based on difficulty!")
             }
             Slider(value: $sliderValue, in: 0...5)
-            Text("Current slider value: \(sliderValue, specifier: "%.2f")").font(.subheadline).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            Text("How did the run feel ? \(sliderValue, specifier: "%.2f")").font(.subheadline).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
         }.padding(20)
     }
     
