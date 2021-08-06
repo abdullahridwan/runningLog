@@ -8,6 +8,8 @@ target 'runningLog (iOS)' do
   # Pods for runningLog (iOS)
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  # pod 'GoogleSignIn'
+  # pod 'Firebase/Core'
 end
 
 target 'runningLog (macOS)' do

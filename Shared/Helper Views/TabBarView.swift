@@ -10,9 +10,13 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var runsOO = RunsOO() // Should be @ObservedObject
     
-    init(){
-        UITabBar.appearance().barTintColor = .white
-    }
+    
+    @ObservedObject var sessionsStore_Input: SessionsStore
+    
+    //init(){
+    //    UITabBar.appearance().barTintColor = .white
+    //}
+    
     var body: some View {
         TabView {
             
@@ -24,12 +28,12 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Today", systemImage: "pencil")
                 }
-//            Text("Jill")
-//                .tabItem {
-//                    Label("Order", systemImage: "square.and.pencil")
-//                }
+            SettingsView(sessionsStore_Input: sessionsStore_Input)
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
-        .accentColor(.red)
+        .accentColor(.blue)
         .onAppear() {
             UITabBar.appearance().barTintColor = .white
         }
@@ -39,6 +43,6 @@ struct TabBarView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarView(sessionsStore_Input: SessionsStore())
     }
 }

@@ -12,16 +12,16 @@ struct ContentView: View {
     //The test/hardlist observed object was in TabBarView(). For sake of simplicity, the firebase one will be here. After testing, delete all hardList mentions for testflight
     
     // Parent Observed Object
-    @ObservedObject var f_RunsOO_Parent = f_RunsOO()
+    @ObservedObject var sessionsStore = SessionsStore()
     
     init() {
-        f_RunsOO_Parent.listen()
+        sessionsStore.listen()
     }
     
     var body: some View {
-        TabBarView()
-            .fullScreenCover(isPresented: $f_RunsOO_Parent.isAnon, content: {
-                Login(f_RunsOO_Input: f_RunsOO_Parent)
+        TabBarView(sessionsStore_Input: sessionsStore)
+            .fullScreenCover(isPresented: $sessionsStore.isAnon, content: {
+                Login(sessionsStore_Input: sessionsStore)
             })
     }
 }

@@ -11,7 +11,9 @@ struct Login: View {
     
     @State var email = ""
     @State var password = ""
-    @ObservedObject var f_RunsOO_Input: f_RunsOO
+    @ObservedObject var sessionsStore_Input: SessionsStore
+    
+    @State var invalidEP = false
     
     
     var body: some View {
@@ -19,27 +21,50 @@ struct Login: View {
             VStack {
                 LabelTextField(label: "Email", placeHolder: "Input your email", bindingString: $email)
                 LabelSecureField(label: "Password", bindingString: $password)
+                Text(verbatim: "Password must be 6+ characters")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
                 
                 
                 HStack {
                     Button(action: {
-                        f_RunsOO_Input.signUp(email: email, password: password)
+                        if validEmailAndPassword(email: email, password: password) == false {
+                            invalidEP = true
+                        }else{
+                            print("[Login] Signing up...")
+                            sessionsStore_Input.signUp(email: email, password: password)
+                        }
                     }, label: {
                         Text("Sign Up")
                     })
                     .buttonStyle(GrowingButtonStyle(buttonColor: Color.orange))
+                    .alert(isPresented: $invalidEP, content: {
+                        Alert(title: Text("Invalid Email or Password"), message: Text("You inputted an invalid email or password. Please check them and try again."), dismissButton: .default(Text("Got it!")))
+                    })
                     
                     Button(action: {
-                        f_RunsOO_Input.signIn(email: email, password: password)
+                        if validEmailAndPassword(email: email, password: password) == false {
+                            invalidEP = true
+                        }else{
+                            sessionsStore_Input.signIn(email: email, password: password)
+                        }
                     }, label: {
                         Text("Login")
                     })
                     .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
+                    .alert(isPresented: $invalidEP, content: {
+                        Alert(title: Text("Invalid Email or Password"), message: Text("You inputted an invalid email or password. Please check them and try again."), dismissButton: .default(Text("Got it!")))
+                    })
                 }
             }
             .padding(.horizontal, 20)
             .navigationTitle("Login")
         }
+    }
+    
+    
+    func validEmailAndPassword(email:String, password:String) -> Bool{
+        return (emailValidator(email) && passwordValidator(password))
     }
 }
 
@@ -67,7 +92,6 @@ struct LabelSecureField : View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        let f_RunsOO_Input = f_RunsOO()
-        Login(f_RunsOO_Input: f_RunsOO_Input)
+        Login(sessionsStore_Input: SessionsStore())
     }
 }

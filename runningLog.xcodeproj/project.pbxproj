@@ -39,6 +39,7 @@
 		B57D82F426BB997D00140E0E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57D82F326BB997D00140E0E /* Login.swift */; };
 		B5827AB126BB8E5A0025D9FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5827AB026BB8E5A0025D9FF /* GoogleService-Info.plist */; };
 		B5827AB226BB8E5A0025D9FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5827AB026BB8E5A0025D9FF /* GoogleService-Info.plist */; };
+		B5845A7226BC4B9700947FE7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5845A7126BC4B9700947FE7 /* SettingsView.swift */; };
 		B588C95126B8935D00898802 /* BasicBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95026B8935D00898802 /* BasicBadge.swift */; };
 		B588C95326B8937300898802 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95226B8937300898802 /* HexagonParameters.swift */; };
 		B588C95626B8940100898802 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588C95526B8940100898802 /* BadgeBackground.swift */; };
@@ -99,6 +100,7 @@
 		B57D82F126BB995500140E0E /* RunList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunList.swift; sourceTree = "<group>"; };
 		B57D82F326BB997D00140E0E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B5827AB026BB8E5A0025D9FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5845A7126BC4B9700947FE7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B588C95026B8935D00898802 /* BasicBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBadge.swift; sourceTree = "<group>"; };
 		B588C95226B8937300898802 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
 		B588C95526B8940100898802 /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				B56B0AB726B64C0B00110EF6 /* CardField.swift */,
 				B56B0AB926B65B6800110EF6 /* DatePickerCard.swift */,
 				B588C95A26B8C89100898802 /* UpdateRun.swift */,
+				B5845A7126BC4B9700947FE7 /* SettingsView.swift */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				B588C95B26B8C89100898802 /* UpdateRun.swift in Sources */,
 				B57D82F226BB995500140E0E /* RunList.swift in Sources */,
 				B56B0ABA26B65B6800110EF6 /* DatePickerCard.swift in Sources */,
+				B5845A7226BC4B9700947FE7 /* SettingsView.swift in Sources */,
 				B588C95126B8935D00898802 /* BasicBadge.swift in Sources */,
 				B51FA7E526923DBD0033EB73 /* ContentView.swift in Sources */,
 				B56B0A6D26B6290B00110EF6 /* CardView.swift in Sources */,
