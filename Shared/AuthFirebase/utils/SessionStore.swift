@@ -9,15 +9,7 @@ import Foundation
 import FirebaseAuth
 
 
-struct f_Run {
-    var f_id = UUID()
-    var f_sliderVal: Double
-    var f_totalMileStr: String
-    var f_totalTimeStr: String
-    var f_caloriesBurnedStr: String
-    var f_commentsStr: String
-    var f_runDate: Date
-}
+
 
 struct User {
     var uid: String

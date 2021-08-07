@@ -14,6 +14,14 @@ struct SettingsView: View {
     var body: some View {
         NavigationView{
             Form {
+                Section(header: Text("USER")){
+                    HStack {
+                        Text("User Email")
+                        Spacer()
+                        Text("\(sessionsStore_Input.session!.email)")
+                    }
+                }
+                
                 Section(header: Text("ABOUT")) {
                     HStack {
                         Text("Version")

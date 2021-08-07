@@ -23,6 +23,11 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $sessionsStore.isAnon, content: {
                 Login(sessionsStore_Input: sessionsStore)
             })
+        //Testing running list
+//        RunList()
+//            .fullScreenCover(isPresented: $sessionsStore.isAnon, content: {
+//                            Login(sessionsStore_Input: sessionsStore)
+//                        })
     }
 }
 

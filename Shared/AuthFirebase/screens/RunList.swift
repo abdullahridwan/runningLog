@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct RunList: View {
+    
+    @ObservedObject var firebaseRunsVM = FirebaseRunsViewModel()
+    
+    init() {
+        firebaseRunsVM.fetchData2()
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //Text("Check console")
+        NavigationView {
+            List(firebaseRunsVM.firebaseRuns){ singleRun in
+                HStack {
+                    Text(singleRun.f_caloriesBurnedStr)
+                    Spacer()
+                }
+            }
+            .navigationBarTitle("Some Title")
+        }
     }
 }
 

@@ -32,6 +32,13 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+            RunList()
+                .tabItem {
+                    Label("Firebase", systemImage: "heart.fill")
+                }
+            
+            
+            
         }
         .accentColor(.blue)
         .onAppear() {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		397BA27BC92B5F9BB9B52E7A /* Pods_runningLog__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCC3D2EC2C39CBF7F3E6528 /* Pods_runningLog__iOS_.framework */; };
+		B506AFD626BE13D4007DA5B0 /* RunsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B506AFD526BE13D4007DA5B0 /* RunsViewModel.swift */; };
 		B51FA7D626923DBD0033EB73 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FA7D526923DBD0033EB73 /* Tests_iOS.swift */; };
 		B51FA7E126923DBD0033EB73 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FA7E026923DBD0033EB73 /* Tests_macOS.swift */; };
 		B51FA7E326923DBD0033EB73 /* runningLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FA7BA26923DBC0033EB73 /* runningLogApp.swift */; };
@@ -69,6 +70,7 @@
 		2650A80767D7ABE57AE34C21 /* Pods-runningLog (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-runningLog (macOS).debug.xcconfig"; path = "Target Support Files/Pods-runningLog (macOS)/Pods-runningLog (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		7DCC3D2EC2C39CBF7F3E6528 /* Pods_runningLog__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_runningLog__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CF1FB8AC02CA93E4AD096D /* Pods-runningLog (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-runningLog (iOS).release.xcconfig"; path = "Target Support Files/Pods-runningLog (iOS)/Pods-runningLog (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		B506AFD526BE13D4007DA5B0 /* RunsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsViewModel.swift; sourceTree = "<group>"; };
 		B51FA7BA26923DBC0033EB73 /* runningLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runningLogApp.swift; sourceTree = "<group>"; };
 		B51FA7BB26923DBC0033EB73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B51FA7BC26923DBD0033EB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				B57D82EE26BB946700140E0E /* SessionStore.swift */,
+				B506AFD526BE13D4007DA5B0 /* RunsViewModel.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				B51FA7FE26923F430033EB73 /* Onboarding.swift in Sources */,
 				B51FA8002692A5AC0033EB73 /* HomeView.swift in Sources */,
 				B51FA7E326923DBD0033EB73 /* runningLogApp.swift in Sources */,
+				B506AFD626BE13D4007DA5B0 /* RunsViewModel.swift in Sources */,
 				B57D82F426BB997D00140E0E /* Login.swift in Sources */,
 				B57D82EF26BB946700140E0E /* SessionStore.swift in Sources */,
 				B526598A269401B100BA4874 /* RunLogged.swift in Sources */,
