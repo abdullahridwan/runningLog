@@ -17,7 +17,7 @@
 * Here, I wanted to show that I added firebase integration. Users will create documents per run, which are then populated with the given meta data (i.e totalMilesRan, etc)
 * User UID is based on email during sign up, and corresponding data is dynamically fetched
 * The goal is to import the whole "Past Workouts" View under the "Logs" tab, into the firebase tab
-<img src="firebase.gif" width="1200" height="375"/>
+<img src="firebase.gif" width="1200" height="380"/>
 <br/>
 <br/>
 
