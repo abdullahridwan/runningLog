@@ -12,6 +12,7 @@ struct TabBarView: View {
     
     
     @ObservedObject var sessionsStore_Input: SessionsStore
+    @ObservedObject var firebaseRunsVM_Input: FirebaseRunsViewModel
     
     //init(){
     //    UITabBar.appearance().barTintColor = .white
@@ -24,7 +25,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Logs", systemImage: "list.bullet")
                 }
-            HomeView(runsOO: self.runsOO)
+            HomeView(runsOO: self.runsOO, firebaseRunsVM: self.firebaseRunsVM_Input)
                 .tabItem {
                     Label("Today", systemImage: "pencil")
                 }
@@ -32,7 +33,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-            RunList()
+            RunList(firebaseRunsVM: self.firebaseRunsVM_Input)
                 .tabItem {
                     Label("Firebase", systemImage: "heart.fill")
                 }
@@ -50,6 +51,6 @@ struct TabBarView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(sessionsStore_Input: SessionsStore())
+        TabBarView(sessionsStore_Input: SessionsStore(), firebaseRunsVM_Input: FirebaseRunsViewModel())
     }
 }

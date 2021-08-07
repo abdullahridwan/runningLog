@@ -12,13 +12,14 @@ struct SettingsView: View {
     
     
     var body: some View {
+        let currentEmail = sessionsStore_Input.session?.email ?? ""
         NavigationView{
             Form {
                 Section(header: Text("USER")){
                     HStack {
                         Text("User Email")
                         Spacer()
-                        Text("\(sessionsStore_Input.session!.email)")
+                        Text("\(currentEmail)")
                     }
                 }
                 

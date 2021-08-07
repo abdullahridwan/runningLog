@@ -13,13 +13,15 @@ struct ContentView: View {
     
     // Parent Observed Object
     @ObservedObject var sessionsStore = SessionsStore()
+    @ObservedObject var firebaseRunsVM = FirebaseRunsViewModel()
     
     init() {
         sessionsStore.listen()
+        firebaseRunsVM.fetchData()
     }
     
     var body: some View {
-        TabBarView(sessionsStore_Input: sessionsStore)
+        TabBarView(sessionsStore_Input: sessionsStore, firebaseRunsVM_Input: firebaseRunsVM)
             .fullScreenCover(isPresented: $sessionsStore.isAnon, content: {
                 Login(sessionsStore_Input: sessionsStore)
             })

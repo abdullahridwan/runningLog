@@ -24,6 +24,7 @@ struct HomeView: View {
     @State private var commentsString: String = ""
     
     @ObservedObject var runsOO: RunsOO
+    @ObservedObject var firebaseRunsVM: FirebaseRunsViewModel
     
     
     var body: some View {
@@ -61,16 +62,28 @@ struct HomeView: View {
                             .padding(.bottom, 0)
 
                         
-                        Button("Log Run") {
-                            runsOO.listOfRuns.append(Run(sliderVal: sliderValue, totalMileStr: totalMileString, totalTimeStr: totalTimeString, caloriesBurnedStr: caloriesBurnedString, commentsStr: commentsString, runDate: runDate))
-                            
+//                        Button("Log Run") {
+//                            runsOO.listOfRuns.append(Run(sliderVal: sliderValue, totalMileStr: totalMileString, totalTimeStr: totalTimeString, caloriesBurnedStr: caloriesBurnedString, commentsStr: commentsString, runDate: runDate))
+//
+//                            self.showRunLogged.toggle()
+//                        }
+//                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
+//                            .sheet(isPresented: $showRunLogged) {
+//                                        RunLogged()
+//                            }
+//                        Spacer()
+                        
+                        Button("Log Run to Firebase") {
+                            firebaseRunsVM.addRun(run: FirebaseRun(id: UUID().uuidString, f_totalMileStr: totalMileString, f_caloriesBurnedStr: caloriesBurnedString, f_runDate: runDate))
                             self.showRunLogged.toggle()
+
                         }
-                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
+                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.red))
                             .sheet(isPresented: $showRunLogged) {
                                         RunLogged()
                             }
                         Spacer()
+
 
                 }
                 .padding(.horizontal, 20)
@@ -173,6 +186,6 @@ struct LabelTextEditor : View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(runsOO: RunsOO())
+        HomeView(runsOO: RunsOO(), firebaseRunsVM: FirebaseRunsViewModel())
     }
 }
