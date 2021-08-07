@@ -18,7 +18,8 @@
 * User UID is based on email during sign up, and corresponding data is dynamically fetched
 * The goal is to import the whole "Past Workouts" View under the "Logs" tab, into the firebase tab
 <img src="firebase.gif" width="600" height="250"/>
-
+<br/>
+<br/>
 
 | Item  |Priority (**1**>2>3)   | Description/Comments
 |---|---|---|
