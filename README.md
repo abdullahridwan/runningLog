@@ -9,10 +9,8 @@
 
 
 
-TODO
-* Add Firebase Auth and Read/Write to save user data to cloud. 
-* Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu
 
+## A Full Run Through updated on August 6th, 2021
 <img src="full.gif" width="300" height="600"/>
 
 
