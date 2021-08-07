@@ -21,6 +21,7 @@
 <br/>
 <br/>
 
+## To Do List
 | Item  |Priority (**1**>2>3)   | Description/Comments
 |---|---|---|
 | Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Personally have running data across multiple sources (i.e Strava, Nike Running Club, Notes App), but would rather have one centralized location for all that data|
