@@ -11,7 +11,7 @@
 
 
 ## A Full Run Through updated on August 6th, 2021
-<img src="full.gif" width="250" height="500"/>
+<img src="full.gif" width="300" height="600"/>
 
 ## Firebase Run Through 
 * Here, I wanted to show that I added firebase integration. Users will create documents per run, which are then populated with the given meta data (i.e totalMilesRan, etc)
