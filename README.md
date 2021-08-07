@@ -17,7 +17,9 @@
 * Here, I wanted to show that I added firebase integration. Users will create documents per run, which are then populated with the given meta data (i.e totalMilesRan, etc)
 * User UID is based on email during sign up, and corresponding data is dynamically fetched
 * The goal is to import the whole "Past Workouts" View under the "Logs" tab, into the firebase tab
-<img src="firebase.gif" width="600" height="250"/>\   
+<img src="firebase.gif" width="600" height="250"/>
+
+
 | Item  |Priority (**1**>2>3)   | Description/Comments
 |---|---|---|
 | Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Personally have running data across multiple sources (i.e Strava, Nike Running Club, Notes App), but would rather have one centralized location for all that data|
