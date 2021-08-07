@@ -13,7 +13,7 @@ TODO
 * Add Firebase Auth and Read/Write to save user data to cloud. 
 * Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu
 
-<img src="full.gif" width="250" height="250"/>
+<img src="full.gif" width="250" height="450"/>
 
 
 | Item  |Priority (**1**>2>3)   | Description/Comments
