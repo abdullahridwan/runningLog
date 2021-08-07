@@ -11,13 +11,13 @@
 
 
 ## A Full Run Through updated on August 6th, 2021
-<img src="full.gif" width="600" height="500"/>
+<img src="full.gif" width="250" height="500"/>
 
 ## Firebase Run Through 
 * Here, I wanted to show that I added firebase integration. Users will create documents per run, which are then populated with the given meta data (i.e totalMilesRan, etc)
 * User UID is based on email during sign up, and corresponding data is dynamically fetched
 * The goal is to import the whole "Past Workouts" View under the "Logs" tab, into the firebase tab
-* <img src="firebase.gif" width="500" height="250"/>
+* <img src="firebase.gif" width="700" height="250"/>
 
 | Item  |Priority (**1**>2>3)   | Description/Comments
 |---|---|---|
