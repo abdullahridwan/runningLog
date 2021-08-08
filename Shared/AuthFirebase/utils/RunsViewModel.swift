@@ -11,11 +11,11 @@ import Firebase
 
 struct FirebaseRun: Codable, Identifiable {
     var id : String? //UUID().uuidString
-    //var f_sliderVal: Double
+    var f_sliderVal: Double
     var f_totalMileStr: String
-    //var f_totalTimeStr: String
+    var f_totalTimeStr: String
     var f_caloriesBurnedStr: String
-    //var f_commentsStr: String
+    var f_commentsStr: String
     var f_runDate: Date
 }
 
@@ -38,15 +38,26 @@ class FirebaseRunsViewModel: ObservableObject {
 //    }
     
     
-    func addRunToFirebase(docID: String, runDateInput: Date, caloriesBurnedInput: String, totalMilesStringInput: String) {
+    func addRunToFirebase(docID: String, sliderValueDoubleInput: Double, totalMilesRanStringInput: String, totalTimeRanStringInput: String, caloriesBurnedStringInput: String, quickCommentsStringInput: String, runDateInput: Date) {
         if (user != nil) {
             db.collection("runningLogs").document(docID).collection("runs").addDocument(data: [
-                "caloriesBurned": caloriesBurnedInput,
                 "id": UUID().uuidString,
+                "sliderValue": sliderValueDoubleInput,
+                "totalMilesRan": totalMilesRanStringInput,
+                "totalTimeRan": totalTimeRanStringInput,
+                "caloriesBurned": caloriesBurnedStringInput,
+                "quickComments": quickCommentsStringInput,
                 "runDate": runDateInput,
-                "totalMilesRan": totalMilesStringInput
+                //"totalMilesRan": totalMilesStringInput
             ])
         }
+//        var id : String? //UUID().uuidString
+//        var f_sliderVal: Double
+//        var f_totalMileStr: String
+//        var f_totalTimeStr: String
+//        var f_caloriesBurnedStr: String
+//        var f_commentsStr: String
+//        var f_runDate: Date
     }
     func fetchData2() {
         print("\n\nFetching Data 2\n")
@@ -69,14 +80,18 @@ class FirebaseRunsViewModel: ObservableObject {
                         let data = docSnapshot.data()
 
                         let docID = docSnapshot.documentID
-                        let caloriesBurned = data["caloriesBurned"] as? String ?? ""
+                        let sliderVal = data["sliderValue"] as? Double ?? 0.0
                         let totalMilesRan = data["totalMilesRan"] as? String ?? ""
+                        let totalTimeRan = data["totalTimeRan"] as? String ?? ""
+                        let caloriesBurned = data["caloriesBurned"] as? String ?? ""
+                        let quickComments = data["quickComments"] as? String ?? ""
 
                         // Get run date
                         let timeStamp = data["runDate"] as! Timestamp  //need a default provider
                         let runDateValue = timeStamp.dateValue()
 
-                        return FirebaseRun(id: docID, f_totalMileStr: totalMilesRan, f_caloriesBurnedStr: caloriesBurned, f_runDate: runDateValue)
+                        return FirebaseRun(id: docID, f_sliderVal: sliderVal, f_totalMileStr: totalMilesRan, f_totalTimeStr: totalTimeRan, f_caloriesBurnedStr: caloriesBurned, f_commentsStr: quickComments, f_runDate: runDateValue)
+
                     })
                 }
             }
@@ -97,15 +112,31 @@ class FirebaseRunsViewModel: ObservableObject {
                     let data = docSnapshot.data()
 
                     let docID = docSnapshot.documentID
-                    let caloriesBurned = data["caloriesBurned"] as? String ?? ""
+                    let sliderVal = data["sliderValue"] as? Double ?? 0.0
                     let totalMilesRan = data["totalMilesRan"] as? String ?? ""
+                    let totalTimeRan = data["totalTimeRan"] as? String ?? ""
+                    let caloriesBurned = data["caloriesBurned"] as? String ?? ""
+                    let quickComments = data["quickComments"] as? String ?? ""
+                    
+                    
+    
+                    
 
+        
+//                    "id": UUID().uuidString,
+//                    "sliderValue": sliderValueDoubleInput,
+//                    "totalMilesRan": totalMilesRanStringInput,
+//                    "totalTimeRan": totalTimeRanStringInput,
+//                    "caloriesBurned": caloriesBurnedStringInput,
+//                    "quickComments": quickCommentsStringInput,
+//                    "runDate": runDateInput,
 
                     // Get run date
                     let timeStamp = data["runDate"] as! Timestamp  //need a default provider
                     let runDateValue = timeStamp.dateValue()
 
-                    return FirebaseRun(id: docID, f_totalMileStr: totalMilesRan, f_caloriesBurnedStr: caloriesBurned, f_runDate: runDateValue)
+                    //return FirebaseRun(id: docID, f_totalMileStr: totalMilesRan, f_caloriesBurnedStr: caloriesBurned, f_runDate: runDateValue)
+                    return FirebaseRun(id: docID, f_sliderVal: sliderVal, f_totalMileStr: totalMilesRan, f_totalTimeStr: totalTimeRan, f_caloriesBurnedStr: caloriesBurned, f_commentsStr: quickComments, f_runDate: runDateValue)
                 })
                 
                 
@@ -118,9 +149,9 @@ class FirebaseRunsViewModel: ObservableObject {
     // Delete a run.
     // Each User is a collection defined by the UID.
     // Each Run is a document
-    func deleteRun(runID: String){
+    func deleteRun(docID: String){
         if (user != nil){
-            db.collection(user!.uid).document(runID).delete() { err in
+            db.collection(user!.uid).document(docID).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
@@ -129,6 +160,21 @@ class FirebaseRunsViewModel: ObservableObject {
             }
         }
     }
+
+    
+    func updateRun(docID: String, sliderValueDoubleInput: Double, totalMilesRanStringInput: String, totalTimeRanStringInput: String, caloriesBurnedStringInput: String, quickCommentsStringInput: String, runDateInput: Date){
+        if (user != nil){
+            db.collection(user!.uid).document(docID).updateData([
+                "sliderValue": sliderValueDoubleInput,
+                "totalMilesRan": totalMilesRanStringInput,
+                "totalTimeRan": totalTimeRanStringInput,
+                "caloriesBurned": caloriesBurnedStringInput,
+                "quickComments": quickCommentsStringInput,
+                "runDate": runDateInput,
+            ])
+        }
+    }
+    
     
     func addRun(run: FirebaseRun){
         let newRunUUID : String = UUID().uuidString
@@ -136,10 +182,21 @@ class FirebaseRunsViewModel: ObservableObject {
         
         if(user != nil){
             db.collection(user!.uid).document(newRunUUID).setData([
+//                "caloriesBurned": run.f_caloriesBurnedStr,
+//                "id": run.id ?? UUID().uuidString,
+//                "runDate": run.f_runDate,
+//                "totalMilesRan": run.f_totalMileStr
+                
+                
+                "id": newRunUUID,
+                "sliderValue": run.f_sliderVal,
+                "totalMilesRan": run.f_totalMileStr,
+                "totalTimeRan": run.f_totalTimeStr,
                 "caloriesBurned": run.f_caloriesBurnedStr,
-                "id": run.id ?? UUID().uuidString,
+                "quickComments": run.f_commentsStr,
                 "runDate": run.f_runDate,
-                "totalMilesRan": run.f_totalMileStr
+                
+                
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")

@@ -23,7 +23,7 @@ struct HomeView: View {
     @State private var caloriesBurnedString: String = ""
     @State private var commentsString: String = ""
     
-    @ObservedObject var runsOO: RunsOO
+    //@ObservedObject var runsOO: RunsOO
     @ObservedObject var firebaseRunsVM: FirebaseRunsViewModel
     
     
@@ -73,12 +73,20 @@ struct HomeView: View {
 //                            }
 //                        Spacer()
                         
-                        Button("Log Run to Firebase") {
-                            firebaseRunsVM.addRun(run: FirebaseRun(id: UUID().uuidString, f_totalMileStr: totalMileString, f_caloriesBurnedStr: caloriesBurnedString, f_runDate: runDate))
+                        Button("Log Run") {
+                            //firebaseRunsVM.addRun(run: FirebaseRun(id: UUID().uuidString, f_totalMileStr: totalMileString, f_caloriesBurnedStr: caloriesBurnedString, f_runDate: runDate))
+                            firebaseRunsVM.addRun(run: FirebaseRun(id: UUID().uuidString, f_sliderVal: sliderValue, f_totalMileStr: totalMileString, f_totalTimeStr: totalTimeString, f_caloriesBurnedStr: caloriesBurnedString, f_commentsStr: commentsString, f_runDate: runDate))
+                            
+                            sliderValue = 0
+                            totalMileString = ""
+                            totalTimeString = ""
+                            caloriesBurnedString = ""
+                            commentsString = ""
+                            
                             self.showRunLogged.toggle()
 
                         }
-                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.red))
+                        .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
                             .sheet(isPresented: $showRunLogged) {
                                         RunLogged()
                             }
@@ -139,6 +147,7 @@ struct LabelTextField : View {
             TextField(placeHolder, text: bindingString)
                 .padding(10)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
+                .keyboardType(.decimalPad)
                 //.padding(10)
             }
             .padding(5)
@@ -186,6 +195,6 @@ struct LabelTextEditor : View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(runsOO: RunsOO(), firebaseRunsVM: FirebaseRunsViewModel())
+        HomeView(firebaseRunsVM: FirebaseRunsViewModel())
     }
 }

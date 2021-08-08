@@ -21,11 +21,11 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             
-            PastRunsView(runsOO: self.runsOO)
+            PastRunsView(firebaseRunsVM: self.firebaseRunsVM_Input)
                 .tabItem {
                     Label("Logs", systemImage: "list.bullet")
                 }
-            HomeView(runsOO: self.runsOO, firebaseRunsVM: self.firebaseRunsVM_Input)
+            HomeView(firebaseRunsVM: self.firebaseRunsVM_Input)
                 .tabItem {
                     Label("Today", systemImage: "pencil")
                 }
@@ -33,10 +33,10 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-            RunList(firebaseRunsVM: self.firebaseRunsVM_Input)
-                .tabItem {
-                    Label("Firebase", systemImage: "heart.fill")
-                }
+//            RunList(firebaseRunsVM: self.firebaseRunsVM_Input)
+//                .tabItem {
+//                    Label("Firebase", systemImage: "heart.fill")
+//                }
         }
         .accentColor(.blue)
         .onAppear() {
