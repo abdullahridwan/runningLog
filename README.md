@@ -1,4 +1,4 @@
-# runningLog
+# runningLog Personal Project
 * Once quarintine started, I started getting into running
 * Started off with the Strava App, however, I wanted an quick and easy way to log all of my runs 
 * Also wanted a comments/notes section to jot down my thoughts during that run. 
@@ -9,11 +9,19 @@
 
 
 
-TODO
-* Add Firebase Auth and Read/Write to save user data to cloud. 
-* Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu
 
+## A Full Run Through as of now
+<img src="full.gif" width="300" height="600"/>
 
+## Firebase Run Through as of now
+* Here, I wanted to show that I added firebase integration. Users will create documents per run, which are then populated with the given meta data (i.e totalMilesRan, etc)
+* User UID is based on email during sign up, and corresponding data is dynamically fetched
+* The goal is to import the whole "Past Workouts" View under the "Logs" tab, into the firebase tab
+<img src="firebase.gif" width="1200" height="380"/>
+<br/>
+<br/>
+
+## To Do List
 | Item  |Priority (**1**>2>3)   | Description/Comments
 |---|---|---|
 | Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Personally have running data across multiple sources (i.e Strava, Nike Running Club, Notes App), but would rather have one centralized location for all that data|
