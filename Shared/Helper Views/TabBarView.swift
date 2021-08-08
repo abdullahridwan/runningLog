@@ -37,9 +37,6 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Firebase", systemImage: "heart.fill")
                 }
-            
-            
-            
         }
         .accentColor(.blue)
         .onAppear() {
