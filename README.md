@@ -1,4 +1,6 @@
 # runningLog Personal Project
+
+## Inspiration
 * Once quarintine started, I started getting into running
 * Started off with the Strava App, however, I wanted an quick and easy way to log all of my runs 
 * Also wanted a comments/notes section to jot down my thoughts during that run. 
@@ -27,3 +29,14 @@
 | Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Personally have running data across multiple sources (i.e Strava, Nike Running Club, Notes App), but would rather have one centralized location for all that data|
 | Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu  | 2  | Want to do beta testing to catch bugs and get general feedback|
 | Badges  |  3 | A cool reward system. Perhaps if you ran a new PR Time or PR Distance, you can get badges/trophies. Goal is to have badges/trophies show on specific runs on the past run Log. Was also thinking of a streaks system like snapchat|
+
+
+
+## Stuff that I've been learning (its alot)
+- Firebase documentation for ios is pretty confusing sometimes, but the playground really helps. Google sign in, and facebook sign in for firebase are for UIKit per the documentation - not swiftui. 
+- Hence, i plan on using apple sign in - but that requires usage of apples framework
+- The difference in usages of Observed Object, Environment Object, and State Object. This was pretty confusing at first, and in fact, I had a bug in my beta that was due to a misunderstanding of these concepts with Firebase. But the apple developer documentation for these are very helpful and I was able to solve my issue
+- Data flow and passing data through view heirarchies. Really interesting work and it feels like a puzzle. I like the data flow aspect alot. 
+- Authentication. I've been learning about Code Security at my **Capital One internship** through their CSSE or Secure coding certification, and this personal project adds onto the fact that the background work for authentication is hard, and I have a new-found appriecation for it.
+- Design. The little details to app design is incredibly important to how the app feels to users, and can highly influence if users like it or not. Colors, design, usability are all concepts I've been learning in class, but applying them has been a different manner. I've always admired the work that UI/UX designers do, but making something from within has increased my appreciation for their creativity - The work that UX/UI designers do is honestly incredible
+- There doesnt seem to be a swiftui component library. Making one sounds pretty cool will do with an MIT license or something
