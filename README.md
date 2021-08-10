@@ -1,4 +1,6 @@
 # runningLog Personal Project
+
+## Inspiration
 * Once quarintine started, I started getting into running
 * Started off with the Strava App, however, I wanted an quick and easy way to log all of my runs 
 * Also wanted a comments/notes section to jot down my thoughts during that run. 
