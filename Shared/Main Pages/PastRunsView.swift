@@ -10,12 +10,16 @@ import SwiftUI
 struct PastRunsView: View {
     //@ObservedObject var runsOO : RunsOO
     
-    @ObservedObject var firebaseRunsVM: FirebaseRunsViewModel
+    @ObservedObject var firebaseRunsVM = FirebaseRunsViewModel()
     
     @State var updateRunBool: Bool = false
     @State var ID: String = UUID().uuidString
     //var listOfRuns: [Run]
     
+    
+    init(){
+        firebaseRunsVM.fetchData()
+    }
     
     
     var body: some View {
@@ -46,6 +50,6 @@ struct PastRunsView: View {
 struct PastRunsView_Previews: PreviewProvider {
     static var previews: some View {
         //PastRunsView(listOfRuns: [Run(sliderVal: 3.0, totalMileStr: "2", totalTimeStr: "30:32", caloriesBurnedStr: "650", commentsStr: "Comments String Super Strong Blah Blah", runDate: Date())])
-        PastRunsView(firebaseRunsVM: FirebaseRunsViewModel())
+        PastRunsView()
     }
 }

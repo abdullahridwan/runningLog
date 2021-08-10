@@ -54,5 +54,4 @@ func dateHours (dateGiven: Date) -> Int {
     let components = Calendar.current.dateComponents([.hour, .minute], from: dateGiven)
     let hour = components.hour ?? 0
     return hour
-
 }

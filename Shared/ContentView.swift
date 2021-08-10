@@ -17,13 +17,12 @@ struct ContentView: View {
     
     init() {
         sessionsStore.listen()
-        firebaseRunsVM.fetchData()
     }
     
     var body: some View {
         TabBarView(sessionsStore_Input: sessionsStore, firebaseRunsVM_Input: firebaseRunsVM)
             .fullScreenCover(isPresented: $sessionsStore.isAnon, content: {
-                Login(sessionsStore_Input: sessionsStore)
+                Login(sessionsStore_Input: sessionsStore, firebaseViewModel: firebaseRunsVM)
             })
         //Testing running list
 //        RunList()

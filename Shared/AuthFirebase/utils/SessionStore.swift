@@ -43,12 +43,13 @@ class SessionsStore: ObservableObject {
     
     
     //Sign In User that from email and password textfields
-    func signIn(email: String, password: String){
+    func signIn(email: String, password: String, firebaseViewModel: FirebaseRunsViewModel){
         authRef.signIn(withEmail: email, password: password){ auth, error in
             if error != nil {
                 print(error.debugDescription)
             }else{
                 print("sign In sucessful!")
+                firebaseViewModel.fetchData()
             }
         }    }
     

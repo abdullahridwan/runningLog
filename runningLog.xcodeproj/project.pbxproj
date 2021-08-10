@@ -183,7 +183,7 @@
 			children = (
 				B5827AB026BB8E5A0025D9FF /* GoogleService-Info.plist */,
 				B51FA7BB26923DBC0033EB73 /* ContentView.swift */,
-				B56B0AB426B631AE00110EF6 /* DataModel */,
+				B56B0AB426B631AE00110EF6 /* Error */,
 				B57D82EC26BB943A00140E0E /* AuthFirebase */,
 				B58A3BB626C025770039A283 /* Main App */,
 				B51FA7F726923DD50033EB73 /* Main Pages */,
@@ -264,12 +264,12 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		B56B0AB426B631AE00110EF6 /* DataModel */ = {
+		B56B0AB426B631AE00110EF6 /* Error */ = {
 			isa = PBXGroup;
 			children = (
 				B56B0AB526B631BF00110EF6 /* RunDataModel.swift */,
 			);
-			path = DataModel;
+			path = Error;
 			sourceTree = "<group>";
 		};
 		B57D82EC26BB943A00140E0E /* AuthFirebase */ = {
@@ -765,6 +765,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdullahridwan.runningLog;
 				PRODUCT_NAME = runningLog;
 				SDKROOT = iphoneos;
@@ -788,6 +789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdullahridwan.runningLog;
 				PRODUCT_NAME = runningLog;
 				SDKROOT = iphoneos;

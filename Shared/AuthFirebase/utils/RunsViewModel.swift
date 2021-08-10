@@ -135,6 +135,8 @@ class FirebaseRunsViewModel: ObservableObject {
                     let timeStamp = data["runDate"] as! Timestamp  //need a default provider
                     let runDateValue = timeStamp.dateValue()
 
+                    
+                    print("[RunsViewModel] a docID:", docID)
                     //return FirebaseRun(id: docID, f_totalMileStr: totalMilesRan, f_caloriesBurnedStr: caloriesBurned, f_runDate: runDateValue)
                     return FirebaseRun(id: docID, f_sliderVal: sliderVal, f_totalMileStr: totalMilesRan, f_totalTimeStr: totalTimeRan, f_caloriesBurnedStr: caloriesBurned, f_commentsStr: quickComments, f_runDate: runDateValue)
                 })
@@ -179,7 +181,7 @@ class FirebaseRunsViewModel: ObservableObject {
     func addRun(run: FirebaseRun){
         let newRunUUID : String = UUID().uuidString
         print("\n\nCheck if this UID is a doc id too:" , newRunUUID)
-        
+        print("\n\n[RunsViewModel] THIS IS THE NEW USER id\n\n")
         if(user != nil){
             db.collection(user!.uid).document(newRunUUID).setData([
 //                "caloriesBurned": run.f_caloriesBurnedStr,

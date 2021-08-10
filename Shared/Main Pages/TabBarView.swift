@@ -21,11 +21,11 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             
-            PastRunsView(firebaseRunsVM: self.firebaseRunsVM_Input)
+            PastRunsView()
                 .tabItem {
                     Label("Logs", systemImage: "list.bullet")
                 }
-            HomeView(firebaseRunsVM: self.firebaseRunsVM_Input)
+            HomeView(firebaseRunsVM: firebaseRunsVM_Input)
                 .tabItem {
                     Label("Today", systemImage: "pencil")
                 }

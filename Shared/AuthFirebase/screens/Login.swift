@@ -12,14 +12,29 @@ struct Login: View {
     @State var email = ""
     @State var password = ""
     @ObservedObject var sessionsStore_Input: SessionsStore
+    @ObservedObject var firebaseViewModel: FirebaseRunsViewModel
     
     @State var invalidEP = false
-    
+    @State var userAlreadyExists = false
     
     var body: some View {
         NavigationView {
             VStack {
-                LabelTextField(label: "Email", placeHolder: "Input your email", bindingString: $email)
+//                LabelTextField(label: "Email", placeHolder: "Input your email", bindingString: $email)
+                
+                VStack(alignment: .leading) {
+                    Text("Email")
+                        .font(.headline)
+                    TextField("Input your email", text: $email)
+                        .padding(10)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.3), lineWidth: 1))
+                        //.keyboardType(.decimalPad)
+                        //.padding(10)
+                    }
+                    .padding(5)
+                    .padding(.horizontal, 15)
+                
+                
                 LabelSecureField(label: "Password", bindingString: $password)
                 Text(verbatim: "Password must be 6+ characters")
                     .font(.caption)
@@ -46,15 +61,15 @@ struct Login: View {
                         if validEmailAndPassword(email: email, password: password) == false {
                             invalidEP = true
                         }else{
-                            sessionsStore_Input.signIn(email: email, password: password)
+                            sessionsStore_Input.signIn(email: email, password: password, firebaseViewModel: firebaseViewModel)
                         }
                     }, label: {
                         Text("Login")
                     })
                     .buttonStyle(GrowingButtonStyle(buttonColor: Color.blue))
-                    .alert(isPresented: $invalidEP, content: {
-                        Alert(title: Text("Invalid Email or Password"), message: Text("You inputted an invalid email or password. Please check them and try again."), dismissButton: .default(Text("Got it!")))
-                    })
+//                    .alert(isPresented: $invalidEP, content: {
+//                        Alert(title: Text("Invalid Email or Password"), message: Text("You inputted an invalid email or password. Please check them and try again."), dismissButton: .default(Text("Got it!")))
+//                    })
                 }
             }
             .padding(.horizontal, 20)
@@ -92,6 +107,6 @@ struct LabelSecureField : View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login(sessionsStore_Input: SessionsStore())
+        Login(sessionsStore_Input: SessionsStore(), firebaseViewModel: FirebaseRunsViewModel())
     }
 }

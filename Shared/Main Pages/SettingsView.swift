@@ -32,7 +32,7 @@ struct SettingsView: View {
                 }
                 Section {
                     Button(action: {
-                        _ = self.sessionsStore_Input.signOut()
+                        let signOut = self.sessionsStore_Input.signOut()
                         //print("Perform an action here...")
                     }) {
                         Text("Sign Out")
