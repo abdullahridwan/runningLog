@@ -27,3 +27,12 @@
 | Add Firebase Auth and Read/Write |   1 | Would not want user data to be lost. Personally have running data across multiple sources (i.e Strava, Nike Running Club, Notes App), but would rather have one centralized location for all that data|
 | Push Beta on TestFlight. If you want to be a beta user, please reach out to me at aar233@cornell.edu  | 2  | Want to do beta testing to catch bugs and get general feedback|
 | Badges  |  3 | A cool reward system. Perhaps if you ran a new PR Time or PR Distance, you can get badges/trophies. Goal is to have badges/trophies show on specific runs on the past run Log. Was also thinking of a streaks system like snapchat|
+
+
+
+## Stuff that I've been learning (its alot)
+- Firebase documentation for ios is pretty confusing sometimes, but the playground really helps. Google sign in, and facebook sign in for firebase are for UIKit per the documentation - not swiftui. 
+- Hence, i plan on using apple sign in - but that requires usage of apples framework
+- The difference in usages of Observed Object, Environment Object, and State Object. This was pretty confusing at first, and in fact, I had a bug in my beta that was due to a misunderstanding of these concepts with Firebase. But the apple developer documentation for these are very helpful and I was able to solve my issue
+- Data flow and passing data through view heirarchies. Really interesting work and it feels like a puzzle. I like the data flow aspect alot. 
+- Authentication. I've been learning about Code Security at my **Capital One internship** through their CSSE or Secure coding certification, and this personal project adds onto the fact that the background work for authentication is hard, and I have a new-found appreication for it
