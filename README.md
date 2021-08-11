@@ -12,7 +12,7 @@
 
 
 
-## A Full Run Through as of now
+## A Full Run Through
 <img src="full.gif" width="300" height="600"/>
 
 ## Firebase Run Through as of now
