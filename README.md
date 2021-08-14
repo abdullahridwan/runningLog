@@ -33,7 +33,7 @@
 
 
 ## Stuff that I've been learning (its alot)
-- Firebase documentation for ios is pretty confusing sometimes, but the playground really helps. Google sign in, and facebook sign in for firebase are for UIKit per the documentation - not swiftui. 
+- Firebase documentation for ios is pretty confusing sometimes, but the playground really helps. Google sign in, and facebook sign in for firebase are for UIKit per the documentation - not swiftui
 - Hence, i plan on using apple sign in - but that requires usage of apples framework
 - The difference in usages of Observed Object, Environment Object, and State Object. This was pretty confusing at first, and in fact, I had a bug in my beta that was due to a misunderstanding of these concepts with Firebase. But the apple developer documentation for these are very helpful and I was able to solve my issue
 - Data flow and passing data through view heirarchies. Really interesting work and it feels like a puzzle. I like the data flow aspect alot. 
