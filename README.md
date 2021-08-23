@@ -7,7 +7,7 @@
 * For example, there were many times where I realized that my form was off and wanted to jot down my mistake.
 * Went from Strava to the notes app for this reason, but wanted a more robust option
 * Hence - __runninglog (tentative name, trying to think of cool names at the moment)__ 
-* Vision is to create something clean and simple - one tab to see past runs and all of its meta info, and another to log the current run
+* Vision is to create something clean and simple - one tab to see past runs and all of its meta info, and another to log the current run.
 
 
 
